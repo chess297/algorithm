@@ -24,3 +24,11 @@ impl<T> Stack<T> {
         self.items.is_empty()
     }
 }
+
+pub fn main() {
+    let mut stack = Stack::new(vec![1, 2, 3]);
+    stack.push(4);
+    stack.pop();
+    stack.len();
+    stack.is_empty();
+}

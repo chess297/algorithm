@@ -1,3 +1,3 @@
-import { Stack } from "../data-structure/stack";
-const stack = new Stack();
-console.log("Hello World", stack.isEmpty());
+import { TS_NAME } from "./constant";
+
+console.log(`Hello ${TS_NAME} Algorithm ~`);

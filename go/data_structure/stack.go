@@ -6,7 +6,7 @@ type Stack struct {
 
 func NewStack() Stack {
 	return Stack{
-		items: []int{1, 2, 3, 4, 5},
+		items: []int{},
 	}
 }
 
@@ -15,6 +15,10 @@ func (s *Stack) Pop() int {
 	last := s.items[lastIndex]
 	s.items = s.items[:lastIndex]
 	return last
+}
+
+func (s *Stack) Append(item int) {
+	s.items = append(s.items, item)
 }
 
 func (s *Stack) Len() int {

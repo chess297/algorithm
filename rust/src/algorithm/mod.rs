@@ -1,5 +1,2 @@
+pub mod linear_search;
 pub mod sort;
-
-pub fn main() {
-    sort::main();
-}

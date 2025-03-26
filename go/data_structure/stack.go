@@ -1,26 +1,27 @@
 package data_structure
 
 type Stack struct {
-	items []int
+	data []int
 }
 
-func NewStack() Stack {
-	return Stack{
-		items: []int{},
-	}
+func NewStack(data []int) *Stack {
+	return &Stack{data: data}
 }
 
-func (s *Stack) Pop() int {
-	lastIndex := s.Len() - 1
-	last := s.items[lastIndex]
-	s.items = s.items[:lastIndex]
+func (a *Stack) Push(index int) {
+	a.data = append(a.data, index)
+}
+
+func (a *Stack) Pop() int {
+	last := a.data[len(a.data)-1]
+	a.data = a.data[:len(a.data)-1]
 	return last
 }
 
-func (s *Stack) Append(item int) {
-	s.items = append(s.items, item)
+func (a *Stack) Size() int {
+	return len(a.data)
 }
 
-func (s *Stack) Len() int {
-	return len(s.items)
+func (a *Stack) IsEmpty() bool {
+	return len(a.data) == 0
 }

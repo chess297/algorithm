@@ -43,4 +43,11 @@ func TestString(t *testing.T) {
 			t.Errorf("str3 = %v, want %v", str3, "你好，世")
 		}
 	})
+
+	str4 := str2[0:13]
+	t.Run("字符串的截取", func(t *testing.T) {
+		if str4 != "你好，世界" {
+			t.Errorf("str4 = %v, want %v", str4, "你好，世界")
+		}
+	})
 }

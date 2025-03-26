@@ -21,7 +21,10 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    working-directory: ./typescript
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./typescript
     steps:
       - name: Setup repo
         uses: actions/checkout@v4

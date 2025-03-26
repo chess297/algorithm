@@ -1,7 +1,12 @@
-pub fn main() {
-    let items = vec![1, 2, 3];
-    // items.pop(); // 不可变实例，不可调用可变借用方法
-    println!("stack len: {}", items.len()); // 不可变实例，不可调用可变借用方法
-    let mut mut_item = vec![1, 2, 3];
-    mut_item.pop(); // 可变实例，可调用可变借用方法
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_variable() {
+        let mut _x: i32 = 1;
+        _x = 2;
+        let y = 3;
+        let z = _x + y;
+        assert_eq!(_x, 2);
+        assert_eq!(z, 5);
+    }
 }

@@ -25,10 +25,16 @@ impl<T> Stack<T> {
     }
 }
 
-pub fn main() {
-    let mut stack = Stack::new(vec![1, 2, 3]);
-    stack.push(4);
-    stack.pop();
-    stack.len();
-    stack.is_empty();
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_stack() {
+        let mut stack = Stack::new(vec![1, 2, 3]);
+        stack.push(4);
+        stack.push(5);
+        assert_eq!(stack.pop(), Some(5));
+        assert_eq!(stack.len(), 4);
+        assert_eq!(stack.is_empty(), false);
+    }
 }

@@ -7,7 +7,13 @@ impl<T> Queue<T> {
     }
 }
 
-pub fn main() {
-    let q = Queue::new(vec![1, 2, 3]);
-    println!("{}", q.data.len());
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_queue() {
+        let mut queue = Queue::new(vec![1, 2, 3, 4, 5]);
+        assert_eq!(queue.data.pop(), Some(5));
+        assert_eq!(queue.data.len(), 4);
+    }
 }

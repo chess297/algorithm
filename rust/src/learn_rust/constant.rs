@@ -1,7 +1,8 @@
-pub const RUST_NAME: &str = "rust";
-
-pub fn main() {
-    println!("Hello, {}!", RUST_NAME);
-    let items = vec![1, 2, 3];
-    println!("stack len: {}", items.len());
+#[cfg(test)]
+mod tests {
+    const RUST_NAME: &str = "rust";
+    #[test]
+    fn test_constant() {
+        assert_eq!(RUST_NAME, "rust");
+    }
 }

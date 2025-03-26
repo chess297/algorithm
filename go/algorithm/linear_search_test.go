@@ -35,6 +35,7 @@ func TestLinearSearchOnInt(t *testing.T) {
 
 }
 
+// TestLinearSearchOnString tests the linear search algorithm on string
 func TestLinearSearchOnString(t *testing.T) {
 	tests := []_Case[string]{
 		{

@@ -19,4 +19,9 @@ func TestArray(t *testing.T) {
 		}
 	})
 
+	// 数组的遍历
+	for i := 0; i < len(arr); i++ {
+		t.Log(arr[i])
+	}
+
 }

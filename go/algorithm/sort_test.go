@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestMain(t *testing.T) {
+func TestSort(t *testing.T) {
 	list := []int{5, 4, 3, 2, 1}
 	SelectSort(list)
 	t.Run("SelectSort", func(t *testing.T) {

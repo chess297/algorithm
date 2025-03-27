@@ -25,7 +25,7 @@ func (a *ArrayStack[T]) Peek() (T, bool) {
 	return a.data.GetLast()
 }
 func (a *ArrayStack[T]) Push(e T) {
-	a.data.Add(e)
+	a.data.AddLast(e)
 }
 
 func (a *ArrayStack[T]) Pop() (T, bool) {

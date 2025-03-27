@@ -1,52 +1,45 @@
 package data_structure
 
-type Queue interface {
+type Queue[T any] interface {
+	Enqueue(e T)
+	Dequeue() (T, bool)
+	GetFront() (T, bool)
+	GetSize() int
+	IsEmpty() bool
 }
 
 type ArrayQueue[T comparable] struct {
-	Queue
-	data []T
+	Queue[T]
+	data Array[T]
 }
 
-func NewArrayQueue[T comparable](data []T) *ArrayQueue[T] {
+func NewArrayQueue[T comparable](data Array[T]) *ArrayQueue[T] {
 	return &ArrayQueue[T]{data: data}
 }
 
 func (a *ArrayQueue[T]) Enqueue(data T) {
-	a.data = append(a.data, data)
+	// a.data = append(a.data, data)
+	a.data.AddLast(data)
 }
 
-func (a *ArrayQueue[T]) Dequeue() T {
-	first := a.data[0]
-	a.data = a.data[1:]
-	return first
+func (a *ArrayQueue[T]) Dequeue() (T, bool) {
+	first, ok := a.GetFront()
+	if !ok {
+		var zero T
+		return zero, false
+	}
+	a.data.DeleteFirst()
+	return first, true
 }
 
-func (a *ArrayQueue[T]) Size() int {
-	return len(a.data)
+func (a *ArrayQueue[T]) GetFront() (T, bool) {
+	return a.data.GetFirst()
+}
+
+func (a *ArrayQueue[T]) GetSize() int {
+	return a.data.GetSize()
 }
 
 func (a *ArrayQueue[T]) IsEmpty() bool {
-	return len(a.data) == 0
+	return a.GetSize() == 0
 }
-
-func (a *ArrayQueue[T]) Front() T {
-	return a.data[0]
-}
-
-func (a *ArrayQueue[T]) Back() T {
-	return a.data[len(a.data)-1]
-}
-
-func (a *ArrayQueue[T]) Clear() {
-	a.data = []T{}
-}
-
-// func (a *ArrayQueue[T]) Contains(data T) bool {
-// 	for _, v := range a.data {
-// 		if equal() v == data {
-// 			return true
-// 		}
-// 	}
-// 	return false
-// }

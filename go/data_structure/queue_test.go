@@ -5,31 +5,32 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	queue := NewArrayQueue([]int{})
+	queue := NewArrayQueue(NewArray([]int{}, 10))
 	queue.Enqueue(1)
 	queue.Enqueue(2)
 	t.Run("Front", func(t *testing.T) {
-		if queue.Front() != 1 {
+		e, ok := queue.GetFront()
+		if e != 1 || !ok {
 			t.Errorf("expected 1, got %d", 1)
 		}
 	})
 
 	t.Run("Enqueue Size", func(t *testing.T) {
-		if queue.Size() != 2 {
-			t.Errorf("expected 2, got %d", queue.Size())
+		if queue.GetSize() != 2 {
+			t.Errorf("expected 2, got %d", queue.GetSize())
 		}
 	})
 
-	first := queue.Dequeue()
 	t.Run("Dequeue", func(t *testing.T) {
+		first, _ := queue.Dequeue()
 		if first != 1 {
 			t.Errorf("expected 1, got %d", 1)
 		}
-		if queue.Front() != 2 {
+		if e, ok := queue.GetFront(); e != 2 || !ok {
 			t.Errorf("expected 2, got %d", 2)
 		}
-		if queue.Size() != 1 {
-			t.Errorf("expected 1, got %d", queue.Size())
+		if queue.GetSize() != 1 {
+			t.Errorf("expected 1, got %d", queue.GetSize())
 		}
 	})
 

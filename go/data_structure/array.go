@@ -28,8 +28,23 @@ func (a *Array[T]) GetSize() int {
 	return len(a.data)
 }
 
-func (a *Array[T]) Add(e T) {
-	a.data = append(a.data, e)
+func (a *Array[T]) Add(e T, index int) {
+	if index == 0 {
+		a.data = append([]T{e}, a.data...)
+	} else if index == a.GetSize() {
+		a.data = append(a.data, e)
+	} else {
+		a.data = append(a.data[:index], append([]T{e}, a.data[index:]...)...)
+	}
+}
+
+func (a *Array[T]) AddFirst(e T) {
+	// a.data = append([]T{e}, a.data...)
+	a.Add(e, 0)
+}
+
+func (a *Array[T]) AddLast(e T) {
+	a.Add(e, a.GetSize())
 }
 
 func (a *Array[T]) Get(i int) (T, bool) {

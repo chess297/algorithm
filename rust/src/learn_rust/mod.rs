@@ -1,4 +1,4 @@
-pub mod constant;
-pub mod learn_struct;
-pub mod string;
-pub mod variable;
+pub mod constant_test;
+pub mod string_test;
+pub mod struct_test;
+pub mod variable_test;

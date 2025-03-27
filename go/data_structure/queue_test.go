@@ -28,5 +28,9 @@ func TestQueue(t *testing.T) {
 		if queue.Front() != 2 {
 			t.Errorf("expected 2, got %d", 2)
 		}
+		if queue.Size() != 1 {
+			t.Errorf("expected 1, got %d", queue.Size())
+		}
 	})
+
 }

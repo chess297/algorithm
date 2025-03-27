@@ -50,4 +50,11 @@ func TestString(t *testing.T) {
 			t.Errorf("str4 = %v, want %v", str4, "你好，世界")
 		}
 	})
+
+	str5 := fmt.Sprintf("我有%d只%s", 4, "猫")
+	t.Run("字符串的格式化", func(t *testing.T) {
+		if str5 != "我有4只猫" {
+			t.Errorf("str5 = %v, want %v", str5, "我有4只猫")
+		}
+	})
 }

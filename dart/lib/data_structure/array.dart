@@ -11,4 +11,8 @@ class Array<T> {
   T getLast() {
     return this._data.last;
   }
+
+  T? getFirst() {
+    return this._data.firstOrNull;
+  }
 }

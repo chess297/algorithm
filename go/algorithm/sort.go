@@ -18,3 +18,27 @@ func SelectSort[T Ordered](list []T) {
 		}
 	}
 }
+
+func InsertSort[T Ordered](list []T) []T {
+	// for i := 1; i < len(list); i++ {
+	// 	temp := list[i]
+	// 	for j := i; j > 0; j-- {
+	// 		if list[j] < temp {
+	// 			list[i] = list[j]
+	// 		} else {
+	// 			list[j] = temp
+	// 			break
+	// 		}
+	// 	}
+	// }
+	// return list
+	for i := len(list) - 2; i == 0; i-- {
+		temp := list[i]
+		var j int
+		for j = i; j < len(list)-1 && list[j] > temp; j++ {
+			list[i] = list[j]
+		}
+		list[j] = temp
+	}
+	return list
+}

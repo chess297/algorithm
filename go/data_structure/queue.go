@@ -1,44 +1,48 @@
 package data_structure
 
-type Queue[T comparable] struct {
+type Queue interface {
+}
+
+type ArrayQueue[T comparable] struct {
+	Queue
 	data []T
 }
 
-func NewQueue[T comparable](data []T) *Queue[T] {
-	return &Queue[T]{data: data}
+func NewArrayQueue[T comparable](data []T) *ArrayQueue[T] {
+	return &ArrayQueue[T]{data: data}
 }
 
-func (a *Queue[T]) Enqueue(data T) {
+func (a *ArrayQueue[T]) Enqueue(data T) {
 	a.data = append(a.data, data)
 }
 
-func (a *Queue[T]) Dequeue() T {
+func (a *ArrayQueue[T]) Dequeue() T {
 	first := a.data[0]
 	a.data = a.data[1:]
 	return first
 }
 
-func (a *Queue[T]) Size() int {
+func (a *ArrayQueue[T]) Size() int {
 	return len(a.data)
 }
 
-func (a *Queue[T]) IsEmpty() bool {
+func (a *ArrayQueue[T]) IsEmpty() bool {
 	return len(a.data) == 0
 }
 
-func (a *Queue[T]) Front() T {
+func (a *ArrayQueue[T]) Front() T {
 	return a.data[0]
 }
 
-func (a *Queue[T]) Back() T {
+func (a *ArrayQueue[T]) Back() T {
 	return a.data[len(a.data)-1]
 }
 
-func (a *Queue[T]) Clear() {
+func (a *ArrayQueue[T]) Clear() {
 	a.data = []T{}
 }
 
-// func (a *Queue[T]) Contains(data T) bool {
+// func (a *ArrayQueue[T]) Contains(data T) bool {
 // 	for _, v := range a.data {
 // 		if equal() v == data {
 // 			return true

@@ -13,9 +13,10 @@ func TestArray(t *testing.T) {
 	})
 
 	t.Run("Array size", func(t *testing.T) {
-		a := &Array[int]{data: []int{}}
-		if a.Find(1) != nil {
-			t.Errorf("Array Find is %v want %v", a.Find(1), nil)
+		a := &Array[int]{data: []int{0, 1}}
+		e, _ := a.Get(1)
+		if e != 1 {
+			t.Errorf("Array Find is %v want %d", e, 1)
 		}
 	})
 

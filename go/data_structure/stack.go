@@ -1,31 +1,48 @@
 package data_structure
 
-type Stack[T any] struct {
-	data []T
+type Stack[T any] interface {
+	Push(e T)
+	Pop() T
+	Peek() T
+	GetSize() int
+	IsEmpty() bool
 }
 
-func NewStack[T any](data []T) *Stack[T] {
-	return &Stack[T]{data: data}
+type ArrayStack[T any] struct {
+	Stack[T]
+	data Array[T]
 }
 
-func (a *Stack[T]) Top() T {
-	return a.data[len(a.data)-1]
+func NewArrayStack[T any](capacity int) *ArrayStack[T] {
+	return &ArrayStack[T]{data: Array[T]{
+		data:     []T{},
+		capacity: capacity,
+		size:     0,
+	}}
 }
 
-func (a *Stack[T]) Push(data T) {
-	a.data = append(a.data, data)
+func (a *ArrayStack[T]) Peek() (T, bool) {
+	return a.data.GetLast()
+}
+func (a *ArrayStack[T]) Push(e T) {
+	a.data.Add(e)
 }
 
-func (a *Stack[T]) Pop() T {
-	last := a.data[len(a.data)-1]
-	a.data = a.data[:len(a.data)-1]
-	return last
+func (a *ArrayStack[T]) Pop() (T, bool) {
+	top, ok := a.Peek()
+
+	if !ok {
+		var zero T
+		return zero, false
+	}
+	a.data.DeleteLast()
+	return top, true
 }
 
-func (a *Stack[T]) Size() int {
-	return len(a.data)
+func (a *ArrayStack[T]) GetSize() int {
+	return a.data.GetSize()
 }
 
-func (a *Stack[T]) IsEmpty() bool {
-	return len(a.data) == 0
+func (a *ArrayStack[T]) IsEmpty() bool {
+	return a.data.size == 0
 }

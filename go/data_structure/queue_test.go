@@ -5,7 +5,7 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	queue := NewQueue([]int{})
+	queue := NewArrayQueue([]int{})
 	queue.Enqueue(1)
 	queue.Enqueue(2)
 	t.Run("Front", func(t *testing.T) {

@@ -15,4 +15,8 @@ class Array<T> {
   T? getFirst() {
     return this._data.firstOrNull;
   }
+
+  int getSize() {
+    return this._data.length;
+  }
 }

@@ -1,16 +1,16 @@
-package data_structure
+package queue_test
 
 import (
+	"go-algorithm/data_structure/queue"
 	"testing"
 )
 
 func TestQueue(t *testing.T) {
-	queue := NewArrayQueue(NewArray([]int{}, 10))
+	queue := queue.NewSliceArrayQueue([]int{})
 	queue.Enqueue(1)
 	queue.Enqueue(2)
 	t.Run("Front", func(t *testing.T) {
-		e, ok := queue.GetFront()
-		if e != 1 || !ok {
+		if queue.GetFront() != 1 {
 			t.Errorf("expected 1, got %d", 1)
 		}
 	})
@@ -22,11 +22,11 @@ func TestQueue(t *testing.T) {
 	})
 
 	t.Run("Dequeue", func(t *testing.T) {
-		first, _ := queue.Dequeue()
+		first := queue.Dequeue()
 		if first != 1 {
 			t.Errorf("expected 1, got %d", 1)
 		}
-		if e, ok := queue.GetFront(); e != 2 || !ok {
+		if queue.GetFront() != 2 {
 			t.Errorf("expected 2, got %d", 2)
 		}
 		if queue.GetSize() != 1 {

@@ -56,4 +56,5 @@ func TestTypeMap(t *testing.T) {
 	s := GDStudent{Name: "Tom", Age: 18}
 	// t.Log(s.Say()) // 没有Say方法，会报错
 	t.Log(s.Name) // 可以通过Person类型的方法访问Say方法
+	t.Log(s.Age)  // 可以通过Person类型的方法访问Say方法
 }

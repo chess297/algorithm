@@ -1,6 +1,9 @@
-package algorithm
+package algorithm_test
 
-import "testing"
+import (
+	"go-algorithm/algorithm/search"
+	"testing"
+)
 
 type _Case[T comparable] struct {
 	name   string
@@ -38,7 +41,7 @@ func TestLinearSearchOnInt(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := LinearSearch(tt.list, tt.target); got != tt.want {
+			if got := search.LinearSearch(tt.list, tt.target); got != tt.want {
 				t.Errorf("LinearSearch() = %v, want %v", got, tt.want)
 			}
 		})
@@ -65,7 +68,7 @@ func TestLinearSearchOnString(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := LinearSearch(tt.list, tt.target); got != tt.want {
+			if got := search.LinearSearch(tt.list, tt.target); got != tt.want {
 				t.Errorf("LinearSearch() = %v, want %v", got, tt.want)
 			}
 		})

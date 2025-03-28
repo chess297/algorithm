@@ -43,7 +43,7 @@ type student struct {
 }
 
 func getStudent(i int64) *student {
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Millisecond * 200)
 	return students[i]
 }
 

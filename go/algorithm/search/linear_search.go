@@ -1,4 +1,4 @@
-package algorithm
+package search
 
 // params：
 // list: 待查找的列表

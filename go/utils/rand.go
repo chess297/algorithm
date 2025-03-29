@@ -15,7 +15,7 @@ func GenOrderIntList(num int) []int {
 func GenDisOrderIntList(num int) []int {
 	arr := []int{}
 	for i := 0; i < num; i++ {
-		arr = append(arr, rand.Intn(10))
+		arr = append(arr, rand.Intn(num))
 	}
 	return arr
 }

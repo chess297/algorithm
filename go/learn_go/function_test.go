@@ -1,7 +1,6 @@
 package learn_go
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -31,7 +30,7 @@ func TestFunction(t *testing.T) {
 
 // 无返回值的函数
 func function() {
-	fmt.Println("无返回值的函数")
+	// fmt.Println("无返回值的函数")
 }
 
 //	func function2() int {
@@ -39,13 +38,13 @@ func function() {
 //		return 1
 //	}
 func function2() (v int) {
-	fmt.Println("有返回值的函数")
+	// fmt.Println("有返回值的函数")
 	v = 1
 	return
 }
 
 func function3() (int, int) {
-	fmt.Println("有多个返回值的函数")
+	// fmt.Println("有多个返回值的函数")
 	return 1, 2
 }
 

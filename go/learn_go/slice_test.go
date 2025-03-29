@@ -70,3 +70,15 @@ func TestSliceCap(t *testing.T) {
 		}
 	})
 }
+
+// 切片的分割，切片分割并不会新增一个新的切片，只是修改了指针、长度和容量
+func TestSliceSlice(t *testing.T) {
+	slice := make([]int, 5, 10) // make([]类型, 长度, 容量)
+
+	t.Run("切片的分割", func(t *testing.T) {
+		// [:2] 前闭后开，所以 [0:len(slice)] == [:]
+		t.Logf("[:2] 的长度是 %d", len(slice[:2]))
+		t.Logf("[0:2] 的长度是 %d", len(slice[0:2]))
+
+	})
+}

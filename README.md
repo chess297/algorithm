@@ -1,3 +1,3 @@
 # algorithm
 
-> algorithm study repository, before start, should learn the language
+> learn algorithm and learn my love for programming.

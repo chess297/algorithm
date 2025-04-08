@@ -8,7 +8,7 @@ import (
 )
 
 func BenchmarkMergeSort(b *testing.B) {
-	list := utils.GenDisOrderIntList(10000)
+	list := utils.GenDisOrderIntList(b.N)
 	var memStats runtime.MemStats
 	runtime.ReadMemStats(&memStats)
 	before := memStats.Alloc
@@ -19,7 +19,7 @@ func BenchmarkMergeSort(b *testing.B) {
 }
 
 func BenchmarkInsertionSort(b *testing.B) {
-	list := utils.GenDisOrderIntList(10000)
+	list := utils.GenDisOrderIntList(b.N)
 	var memStats runtime.MemStats
 	runtime.ReadMemStats(&memStats)
 	before := memStats.Alloc
@@ -30,7 +30,7 @@ func BenchmarkInsertionSort(b *testing.B) {
 }
 
 func BenchmarkSelectionSort(b *testing.B) {
-	list := utils.GenDisOrderIntList(10000)
+	list := utils.GenDisOrderIntList(b.N)
 	var memStats runtime.MemStats
 	runtime.ReadMemStats(&memStats)
 	before := memStats.Alloc

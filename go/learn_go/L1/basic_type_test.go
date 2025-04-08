@@ -2,7 +2,7 @@
 // 1. 布尔类型
 // 2. 数字类型
 
-package learn_go
+package l1_test
 
 import "testing"
 

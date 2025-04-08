@@ -3,7 +3,7 @@
 // 2. 算术运算
 // 3. 逻辑运算
 // 4. 比较运算
-package learn_go
+package l1_test
 
 import "testing"
 

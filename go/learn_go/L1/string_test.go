@@ -1,4 +1,4 @@
-package learn_go
+package l1_test
 
 import (
 	"fmt"

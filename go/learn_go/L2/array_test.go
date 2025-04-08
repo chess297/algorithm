@@ -1,4 +1,4 @@
-package learn_go
+package l2_test
 
 import "testing"
 

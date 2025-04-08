@@ -3,7 +3,7 @@
 // 2. 定义接口
 // 3. 定义类型别名
 
-package learn_go
+package l1_test
 
 import "testing"
 
